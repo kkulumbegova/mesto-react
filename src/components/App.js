@@ -35,7 +35,7 @@ function App() {
 
 
   return (
-    <div className="page">
+    <>
       <div className="page__container">
         <Header />
         <Main onEditAvatar={handleEditAvatarClick} onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onCardClick={handleCardClick} />
@@ -103,7 +103,7 @@ function App() {
         />
         <span id="avatar_link-error" className="form__input-error"></span>
       </PopupWithForm>
-    </div>
+    </>
   );
 }
 
