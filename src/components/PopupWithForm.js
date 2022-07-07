@@ -1,11 +1,9 @@
-import React from 'react';
-
-export default function PopupWithForm({ name, title, button, isOpen, onClose, children }) {
+export default function PopupWithForm({ name, title, button, isOpen, onClose, children, onSubmit }) {
     return(
       <section className={`popup popup_${name} ${isOpen && "popup_opened"}`}>
         <div className="popup__container">
           <h3 className="popup__header">{title}</h3>
-          <form action="#" name={name} className="form form_add" noValidate>
+          <form action="#" name={name} className="form form_add" onSubmit={onSubmit} noValidate>
             {children}
             <button type="submit" name="submit" className="form__submit">{button}</button>
           </form>

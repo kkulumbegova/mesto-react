@@ -39,7 +39,7 @@ class Api {
       },
       body: JSON.stringify({
         name: formData.name,
-        about: formData.job
+        about: formData.about,
       })
     })
     .then(this._handleResponse);
@@ -53,7 +53,7 @@ class Api {
       },
       body: JSON.stringify({
         name: formData.name,
-        link: formData.link
+        link: formData.link,
       })
     })
     .then(this._handleResponse);
@@ -107,7 +107,7 @@ class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        avatar: formData.avatar_link,
+        avatar: formData.avatar,
       })
     })
     .then(this._handleResponse);
