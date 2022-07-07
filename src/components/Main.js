@@ -16,9 +16,9 @@ export default function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardCl
       </section>
       <section className="cards">
         <ul className="cards__list">
-          {cards.map((card) =>
-            <Card name={card.name} likes={card.likes} id={card.id} owner={card.owner} key={card.id} src={card.src} onCardClick={onCardClick} owner={card.owner} onCardLike={onCardLike} onCardDelete={onCardDelete}></Card>
-          )}
+          {cards.map((card) =>(
+            <Card name={card.name} likes={card.likes} id={card.id} owner={card.owner} key={card.id} src={card.src} onCardClick={onCardClick} onCardLike={onCardLike} onCardDelete={onCardDelete}></Card>
+          ))}
         </ul>
       </section>
     </div>

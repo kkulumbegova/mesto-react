@@ -11,9 +11,13 @@ import EditAvatarPopup from './EditAvatarPopup.js';
 import AddPlacePopup from "./AddPlacePopup.js"
 
 function App() {
-  const [currentUser, setCurrentUser] = useState('');
+  const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
-
+  const [isEditAvatarPopupOpen, setEditAvatarState] = useState(false);
+  const [isEditProfilePopupOpen, setEditProfileState] = useState(false);
+  const [isAddPlacePopupOpen, setAddPlaceState] = useState(false);
+  const [selectedCard, setSelectedCard] = useState({ name: '', likes: '', id: '', src: '' });
+ 
   useEffect(() => {
     api.getInfo().then((res) => {
       setCurrentUser(res);
@@ -63,15 +67,14 @@ function App() {
       .catch((err) => { console.log(err); })
   }
 
-  const [isEditAvatarPopupOpen, setEditAvatarState] = useState(false);
   const handleEditAvatarClick = () => {
     setEditAvatarState(true);
   }
-  const [isEditProfilePopupOpen, setEditProfileState] = useState(false);
+ 
   const handleEditProfileClick = () => {
     setEditProfileState(true);
   }
-  const [isAddPlacePopupOpen, setAddPlaceState] = useState(false);
+  
   const handleAddPlaceClick = () => {
     setAddPlaceState(true);
   }
@@ -83,7 +86,6 @@ function App() {
     setSelectedCard({ name: '', likes: '', id: '', src: '' });
   }
 
-  const [selectedCard, setSelectedCard] = useState({ name: '', likes: '', id: '', src: '' });
   const handleCardClick = (card) => {
     setSelectedCard(card);
   }
@@ -119,7 +121,6 @@ function App() {
   }
 
   return (
-    <>
       <CurrentUserContext.Provider value={currentUser}>
         <div className="page__container">
           <Header />
@@ -135,7 +136,6 @@ function App() {
         </PopupWithForm>
         <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar}></EditAvatarPopup>
       </CurrentUserContext.Provider>
-    </>
   );
 }
 
